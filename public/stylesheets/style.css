@@ -1,0 +1,91 @@
+.background-purple{
+    background: purple;
+}
+
+.background-green{
+    background: #18CC87;
+}
+
+.background-blue{
+    background: #5C73F2;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+}
+
+.square-filler{
+    width: 100px;
+    height: 100px;
+}
+
+.rectangle{
+    width: 200px;
+    height: 100px;
+}
+
+.circle{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.oval{
+    height: 100px;
+    width: 200px;
+    border-radius: 50px;
+}
+
+.triangleUp{
+    border-bottom: 100px solid #6BFFC6;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 0px;
+}
+
+.triangleDown{
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid #6BFFC6;
+    border-bottom: 0px;
+}
+
+.triangleLeft{
+    border-left: 0px;
+    border-right: 100px solid #6BFFC6;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+}
+
+.triangleRight{
+    border-left: 100px solid #6BFFC6;
+    border-right: 0px;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+}
+
+.display{
+    width: 312px;
+    height: 312px;
+    border: 6px solid black;
+    background: black;
+}
+
+.button-display{
+    width: 300px;
+    height: 300px;
+    background: rosybrown;
+}
+
+.grass{
+    background-image: url('../images/emptyGrass.png');
+}
+
+.guy{
+    background-image: url('../images/redYellowGuyGrass.png');
+}
+
+textarea {
+    resize: none;
+  }

@@ -1,7 +1,62 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      Welcome
+<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" data-backdrop="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Welcome to the Explorer Game</h5>
+      </div>
+      <div class="modal-body">
+        Use the arrow buttons on the right side of the screen to navigate.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Continue</button>
+      </div>
     </div>
   </div>
+</div>
+
+<div class="container">
+
+  <div class="row background-blue">
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+      <div class="display d-flex flex-wrap">
+        <div class="square guy"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+        <div class="square grass"></div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="button-display d-flex flex-wrap">
+        <div class="square-filler"></div>
+        <div class="triangleUp" onclick="moveCharacter(event)"></div>
+        <div class="square-filler"></div>
+        <div class="triangleLeft" onclick="moveCharacter(event)"></div>
+        <div class="square-filler"></div>
+        <div class="triangleRight" onclick="moveCharacter(event)"></div>
+        <div class="square-filler"></div>
+        <div class="triangleDown" onclick="moveCharacter(event)"></div>
+        <div class="square-filler"></div>
+      </div>
+      
+    </div>
+  </div>
+
+<div class="row background-blue">
+  <div class="col-4">
+
+  </div>
+<div class="col-8">
+  <textarea id="theTextArea" cols="10" rows="5" class="form-control" readonly></textarea>
+</div>
+</div>
+
 </div>

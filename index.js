@@ -31,8 +31,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function(req, res, next) {
   res.render("index", {
-    title: "Bootstrap Template",
-    script: "/js/script.js"
+    title: "Explorer Game",
+    script: "/js/script3.js"
   });
 });
 
