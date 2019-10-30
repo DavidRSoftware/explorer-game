@@ -4,6 +4,9 @@
 window.onload = function() {
   $("#welcomeModal").modal();
   addText("Welcome to the explorer game");
+  document.getElementById("goldCoins").innerText = gold;
+  document.getElementById("lifePoints").innerText = life;
+  document.getElementById("attackPoints").innerText = attack;
 };
 
 let current = 0;
@@ -52,6 +55,8 @@ function moveCharacter(e) {
 }
 
 let gold = 0;
+let life = 100;
+let attack = 10;
 function action() {
   let random = getRandomIntInclusive(1, 5);
   if (random == 1) {
@@ -59,6 +64,7 @@ function action() {
     addText(
       "You have found 20 gold coins! You now have " + gold + " gold coins."
     );
+    document.getElementById("goldCoins").innerText = gold;
   } else if (random == 2) {
     fight();
   }
@@ -66,6 +72,8 @@ function action() {
 
 function fight() {
   addText("You are in a fight!");
+  life -= 10;
+  document.getElementById("lifePoints").innerText = life;
 }
 
 //Returns a random integer between min (included) and max (included)

@@ -72,6 +72,18 @@
     background: cadetblue;
 }
 
+.sideBar{
+    width: 212px;
+    height: 312px;
+    background: burlywood;
+    border: 6px solid cadetblue;
+}
+
+.infoPanel{
+    width: 200px;
+    height: 100px;
+}
+
 .button-display{
     width: 300px;
     height: 312px;

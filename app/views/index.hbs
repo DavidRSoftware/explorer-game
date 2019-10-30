@@ -1,4 +1,5 @@
-<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" data-backdrop="true">
+<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"
+  data-backdrop="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -17,8 +18,28 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
+      <div class="sideBar d-flex flex-wrap">
+        <div class="infoPanel d-flex align-items-center justify-content-center">
+          <div>
+            <h5 class="d-inline">Life Points: </h5>
+            <span id="lifePoints"></span>
+          </div>
+        </div>
+        <div class="infoPanel d-flex align-items-center justify-content-center">
+          <div>
+            <h5 class="d-inline">Attack Points: </h5>
+            <span id="attackPoints"></span>
+          </div>
+        </div>
+        <div class="infoPanel d-flex align-items-center justify-content-center">
+          <div>
+            <h5 class="d-inline">Gold Coins: </h5>
+            <span id="goldCoins"></span>
+          </div>
+        </div>
 
+      </div>
     </div>
     <div class="col-4">
       <div class="display d-flex flex-wrap">
@@ -34,7 +55,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-5">
       <div class="button-display d-flex flex-wrap">
         <div class="square-filler"></div>
         <div class="triangleUp" onclick="moveCharacter(event)"></div>
@@ -46,17 +67,17 @@
         <div class="triangleDown" onclick="moveCharacter(event)"></div>
         <div class="square-filler"></div>
       </div>
-      
+
     </div>
   </div>
 
-<div class="row">
-  <div class="col-4">
+  <div class="row">
+    <div class="col-3">
 
+    </div>
+    <div class="col-8" style="padding-right: 4px;">
+      <textarea id="theTextArea" cols="10" rows="5" class="form-control" readonly></textarea>
+    </div>
   </div>
-<div class="col-8" style="padding-right: 4px;">
-  <textarea id="theTextArea" cols="10" rows="5" class="form-control" readonly></textarea>
-</div>
-</div>
 
 </div>
