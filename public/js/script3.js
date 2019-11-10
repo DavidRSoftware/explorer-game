@@ -1,5 +1,41 @@
 // The function getRandomIntInclusive(min, max) is taken from the mozilla developer network website at
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+const AMOUNT_OF_SQUARES = 100;
+const AMOUNT_PER_ROW = 10;//has to divide evenly into AMOUNT_OF_SQUARES
+const AMOUNT_OF_ROWS = AMOUNT_OF_SQUARES / AMOUNT_PER_ROW;
+const LOCATION_OF_START = 0;
+const ARRAY_OF_LEFT = getLeftArray();
+const ARRAY_OF_RIGHT = getRightArray();
+const ARRAY_OF_DOWN = getDownArray();
+
+function getDownArray() {
+  let array = [];
+  for (let i = 1; i <= AMOUNT_PER_ROW; i++) {
+    array.push(AMOUNT_OF_SQUARES-i);
+  }
+  return array;
+}
+
+function getRightArray() {
+  let array = [AMOUNT_PER_ROW - 1];
+  let temp = AMOUNT_PER_ROW - 1;
+  for (let i = temp; i < AMOUNT_OF_SQUARES; i++) {
+    if (i == temp + AMOUNT_PER_ROW){ array.push(i);
+    temp = i;
+  }
+}
+  console.log(array);
+  
+  return array;
+}
+
+function getLeftArray() {
+  let array = [0];
+  for (let i = 1; i < AMOUNT_OF_SQUARES; i++) {
+    if (i % AMOUNT_PER_ROW == 0) array.push(i);
+  }
+  return array;
+}
 
 window.onload = function() {
   $("#welcomeModal").modal();
@@ -7,23 +43,41 @@ window.onload = function() {
   document.getElementById("goldCoins").innerText = gold;
   document.getElementById("lifePoints").innerText = life;
   document.getElementById("attackPoints").innerText = attack;
+  generateBoard();
 };
 
-let current = 0;
-let future = 0;
+function generateBoard() {
+  const display = document.getElementById("exploreDisplay");
+  for (let i = 0; i < AMOUNT_OF_SQUARES; i++) {
+    if (i === LOCATION_OF_START) {
+      const guySquare = document.createElement("div");
+      guySquare.className = "square guy";
+      guySquare.id = "square" + (i + 1);
+      display.appendChild(guySquare);
+      continue;
+    }
+    const grassSquare = document.createElement("div");
+    grassSquare.className = "square grass";
+    grassSquare.id = "square" + (i + 1);
+    display.appendChild(grassSquare);
+  }
+}
+
 const items = document.getElementsByClassName("square");
+let current = LOCATION_OF_START;
+let future = LOCATION_OF_START;
 function moveCharacter(e) {
   switch (e.target.className) {
     case "triangleUp":
-      if (current == 0 || current == 1 || current == 2) {
+      if (current < AMOUNT_PER_ROW) {
         break;
       }
-      future -= 3;
+      future -= AMOUNT_PER_ROW;
       addText("You have moved up");
       action();
       break;
     case "triangleLeft":
-      if (current == 0 || current == 3 || current == 6) {
+      if (ARRAY_OF_LEFT.includes(current)) {
         break;
       }
       future -= 1;
@@ -31,7 +85,7 @@ function moveCharacter(e) {
       action();
       break;
     case "triangleRight":
-      if (current == 2 || current == 5 || current == 8) {
+      if (ARRAY_OF_RIGHT.includes(current)) {
         break;
       }
       future += 1;
@@ -39,10 +93,10 @@ function moveCharacter(e) {
       action();
       break;
     case "triangleDown":
-      if (current == 6 || current == 7 || current == 8) {
+      if (ARRAY_OF_DOWN.includes(current)) {
         break;
       }
-      future += 3;
+      future += AMOUNT_PER_ROW;
       addText("You have moved down");
       action();
       break;
@@ -57,6 +111,11 @@ function moveCharacter(e) {
 let gold = 0;
 let life = 100;
 let attack = 10;
+const monsterOne = {
+  life: 30,
+  attack: 10
+};
+
 function action() {
   let random = getRandomIntInclusive(1, 5);
   if (random == 1) {
@@ -71,8 +130,22 @@ function action() {
 }
 
 function fight() {
-  addText("You are in a fight!");
-  life -= 10;
+  addText("You are in a fight");
+  let monster = JSON.parse(JSON.stringify(monsterOne));
+  while (true) {
+    addText("You attack");
+    monster.life -= attack;
+    if (monster.life <= 0) {
+      addText("You defeat the monster");
+      break;
+    }
+    addText("The monster attacks");
+    life -= 10;
+    if (life <= 0) {
+      addText("You are defeated");
+      break;
+    }
+  }
   document.getElementById("lifePoints").innerText = life;
 }
 

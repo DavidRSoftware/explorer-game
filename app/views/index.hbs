@@ -15,10 +15,10 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 
   <div class="row">
-    <div class="col-3">
+    <div class="col-3" style="left: 68px;">
       <div class="sideBar d-flex flex-wrap">
         <div class="infoPanel d-flex align-items-center justify-content-center">
           <div>
@@ -41,9 +41,9 @@
 
       </div>
     </div>
-    <div class="col-4">
-      <div class="display d-flex flex-wrap">
-        <div class="square guy"></div>
+    <div class="col-4" style="left: 90px;">
+      <div class="display d-flex flex-wrap" id="exploreDisplay">
+        {{!-- <div class="square guy"></div>
         <div class="square grass"></div>
         <div class="square grass"></div>
         <div class="square grass"></div>
@@ -51,11 +51,11 @@
         <div class="square grass"></div>
         <div class="square grass"></div>
         <div class="square grass"></div>
-        <div class="square grass"></div>
+        <div class="square grass"></div> --}}
       </div>
     </div>
 
-    <div class="col-5">
+    <div class="col-4" style="left: 40px;">
       <div class="button-display d-flex flex-wrap">
         <div class="square-filler"></div>
         <div class="triangleUp" onclick="moveCharacter(event)"></div>
@@ -75,7 +75,8 @@
     <div class="col-3">
 
     </div>
-    <div class="col-8" style="padding-right: 4px;">
+    <div class="col-8" >
+      {{!-- style="padding-right: 4px;" --}}
       <textarea id="theTextArea" cols="10" rows="5" class="form-control" readonly></textarea>
     </div>
   </div>
