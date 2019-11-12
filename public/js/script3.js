@@ -1,7 +1,7 @@
 // The function getRandomIntInclusive(min, max) is taken from the mozilla developer network website at
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 const AMOUNT_OF_SQUARES = 100;
-const AMOUNT_PER_ROW = 10;//has to divide evenly into AMOUNT_OF_SQUARES
+const AMOUNT_PER_ROW = 10; //has to divide evenly into AMOUNT_OF_SQUARES
 const AMOUNT_OF_ROWS = AMOUNT_OF_SQUARES / AMOUNT_PER_ROW;
 const LOCATION_OF_START = 0;
 const ARRAY_OF_LEFT = getLeftArray();
@@ -11,7 +11,7 @@ const ARRAY_OF_DOWN = getDownArray();
 function getDownArray() {
   let array = [];
   for (let i = 1; i <= AMOUNT_PER_ROW; i++) {
-    array.push(AMOUNT_OF_SQUARES-i);
+    array.push(AMOUNT_OF_SQUARES - i);
   }
   return array;
 }
@@ -20,12 +20,13 @@ function getRightArray() {
   let array = [AMOUNT_PER_ROW - 1];
   let temp = AMOUNT_PER_ROW - 1;
   for (let i = temp; i < AMOUNT_OF_SQUARES; i++) {
-    if (i == temp + AMOUNT_PER_ROW){ array.push(i);
-    temp = i;
+    if (i == temp + AMOUNT_PER_ROW) {
+      array.push(i);
+      temp = i;
+    }
   }
-}
   console.log(array);
-  
+
   return array;
 }
 
@@ -119,34 +120,55 @@ const monsterOne = {
 function action() {
   let random = getRandomIntInclusive(1, 5);
   if (random == 1) {
-    gold += 20;
-    addText(
-      "You have found 20 gold coins! You now have " + gold + " gold coins."
-    );
-    document.getElementById("goldCoins").innerText = gold;
+    stuffStore();
   } else if (random == 2) {
     fight();
   }
 }
 
+let monster;
 function fight() {
+  document.getElementById("combat-display").classList.remove("d-none");
   addText("You are in a fight");
-  let monster = JSON.parse(JSON.stringify(monsterOne));
-  while (true) {
-    addText("You attack");
-    monster.life -= attack;
-    if (monster.life <= 0) {
-      addText("You defeat the monster");
-      break;
-    }
-    addText("The monster attacks");
-    life -= 10;
-    if (life <= 0) {
-      addText("You are defeated");
-      break;
-    }
+  monster = JSON.parse(JSON.stringify(monsterOne));
+}
+
+function continueFight() {
+  addText("You attack");
+  monster.life -= attack;
+  if (monster.life <= 0) {
+    addText("You defeat the monster");
+    document.getElementById("combat-display").classList.add("d-none");
+    gold += 20;
+    addText(
+      "You have gained 20 gold coins! You now have " + gold + " gold coins."
+    );
+    document.getElementById("goldCoins").innerText = gold;
+    return;
   }
+  addText("The monster attacks");
+  life -= 10;
   document.getElementById("lifePoints").innerText = life;
+  if (life <= 0) {
+    addText("You are defeated");
+  }
+}
+
+function stuffStore() {
+  document.getElementById("store-display").classList.remove("d-none");
+}
+
+function purchase(e) {
+  console.log(e.target.getAttribute("data-item-name"));
+  
+  switch (e.target.getAttribute("data-item-name")) {
+    case "sword":
+      break;
+    case "shield":
+      break;
+    default:
+      document.getElementById("store-display").classList.add("d-none");
+  }
 }
 
 //Returns a random integer between min (included) and max (included)

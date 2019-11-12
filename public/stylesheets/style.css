@@ -1,113 +1,139 @@
-.background-purple{
-    background: purple;
+.background-purple {
+  background: purple;
 }
 
-.background-green{
-    background: #18CC87;
+.background-green {
+  background: #18cc87;
 }
 
-.background-blue{
-    background: #5C73F2;
+.background-blue {
+  background: #5c73f2;
 }
 
-.square{
-    width: 30px;
-    height: 30px;
+.background-brown{
+    background: rosybrown;
 }
 
-.square-filler{
-    width: 100px;
-    height: 100px;
+.square {
+  width: 30px;
+  height: 30px;
 }
 
-.rectangle{
-    width: 200px;
-    height: 100px;
+.square-filler {
+  width: 100px;
+  height: 100px;
 }
 
-.circle{
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
+.rectangle {
+  width: 200px;
+  height: 100px;
 }
 
-.oval{
-    height: 100px;
-    width: 200px;
-    border-radius: 50px;
+.circle {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
 }
 
-.triangleUp{
-    border-bottom: 100px solid #6BFFC6;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 0px;
+.oval {
+  height: 100px;
+  width: 200px;
+  border-radius: 50px;
 }
 
-.triangleDown{
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid #6BFFC6;
-    border-bottom: 0px;
+.triangleUp {
+  border-bottom: 100px solid #6bffc6;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 0px;
 }
 
-.triangleLeft{
-    border-left: 0px;
-    border-right: 100px solid #6BFFC6;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+.triangleDown {
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid #6bffc6;
+  border-bottom: 0px;
 }
 
-.triangleRight{
-    border-left: 100px solid #6BFFC6;
-    border-right: 0px;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+.triangleLeft {
+  border-left: 0px;
+  border-right: 100px solid #6bffc6;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
 }
 
-.display{
-    width: 320px;
-    height: 312px;
-    border: 6px solid cadetblue;
-    background: cadetblue;
+.triangleRight {
+  border-left: 100px solid #6bffc6;
+  border-right: 0px;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
 }
 
-.sideBar{
-    width: 212px;
-    height: 312px;
-    background: burlywood;
-    border: 6px solid cadetblue;
+.display {
+  width: 320px;
+  height: 312px;
+  border: 6px solid cadetblue;
+  background: cadetblue;
 }
 
-.infoPanel{
-    width: 200px;
-    height: 100px;
+.sideBar {
+  width: 212px;
+  height: 312px;
+  background: burlywood;
+  border: 6px solid cadetblue;
 }
 
-.button-display{
-    width: 300px;
-    height: 312px;
-    background: cadetblue;
-    /* border: 6px solid black; */
+.infoPanel {
+  width: 200px;
+  height: 100px;
 }
 
-.grass{
-    background-image: url('../images/emptyGrass.png');
+.button-display {
+  width: 300px;
+  height: 312px;
+  background: cadetblue;
+  /* border: 6px solid black; */
 }
 
-.guy{
-    background-image: url('../images/redYellowGuyGrass.png');
+.grass {
+  background-image: url("../images/emptyGrass.png");
+}
+
+.guy {
+  background-image: url("../images/redYellowGuyGrass.png");
 }
 
 textarea {
-    resize: none;
-    
-  }
+  resize: none;
+}
 
-  body {
-      background-color: #5C73F2;
-  }
-  
-  #theTextArea{
-      border: 6px solid cadetblue;
-  }
+body {
+  background-color: #5c73f2;
+}
+
+#theTextArea {
+  border: 6px solid cadetblue;
+  border-radius: 0px;
+}
+
+.flex-area-container {
+  width: 831px;
+}
+
+.combat-display{
+    width: 619px;
+    height: 312px;
+    background-color: cadetblue;
+    position: fixed;
+    /* display: none; */
+    right: 141px;
+}
+
+.stuff-display{
+    width: 619px;
+    height: 312px;
+    background-color: cadetblue;
+    position: fixed;
+    /* display: none; */
+    right: 141px;
+}

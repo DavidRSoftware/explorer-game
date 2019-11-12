@@ -15,35 +15,77 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="d-none" id="combat-display">
+<div class="d-flex justify-content-end">
+  <div class="combat-display d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary btn-lg" onclick="continueFight()">Attack</button>
+  </div>
+</div>
+</div>
 
-  <div class="row">
-    <div class="col-3" style="left: 68px;">
-      <div class="sideBar d-flex flex-wrap">
-        <div class="infoPanel d-flex align-items-center justify-content-center">
-          <div>
-            <h5 class="d-inline">Life Points: </h5>
-            <span id="lifePoints"></span>
-          </div>
-        </div>
-        <div class="infoPanel d-flex align-items-center justify-content-center">
-          <div>
-            <h5 class="d-inline">Attack Points: </h5>
-            <span id="attackPoints"></span>
-          </div>
-        </div>
-        <div class="infoPanel d-flex align-items-center justify-content-center">
-          <div>
-            <h5 class="d-inline">Gold Coins: </h5>
-            <span id="goldCoins"></span>
-          </div>
-        </div>
+<div class="d-none" id="store-display">
+<div class="d-flex justify-content-end">
+  <div class="stuff-display d-flex justify-content-center align-items-center">
+    
 
+<div class="card background-brown" style="width: 200px;">
+  <img class="card-img-top" src="">
+  <div class="card-body">
+    <h5 class="card-title">Sword</h5>
+    <p class="card-text">Gives you ten more attack points. Costs 10 gold coins.</p>
+    <button class="btn btn-primary btn-lg" onclick="purchase(event)" data-item-name="sword">Buy</button>
+  </div>
+</div>
+
+<div class="card background-brown" style="width: 200px;">
+  <img class="card-img-top" src="">
+  <div class="card-body">
+    <h5 class="card-title">Shield</h5>
+    <p class="card-text">Gives you ten more defense points. Costs 10 gold coins.</p>
+    <button class="btn btn-primary btn-lg" onclick="purchase(event)" data-item-name="shield">Buy</button>
+  </div>
+</div>
+
+<div class="card background-brown" style="width: 200px;height:212px">
+  <img class="card-img-top" src="">
+  <div class="card-body">
+    <h5 class="card-title">Exit</h5>
+    <p class="card-text">Exit the store.</p>
+    <button class="btn btn-primary btn-lg" onclick="purchase(event)">Exit</button>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="">
+    <div class="sideBar d-flex flex-wrap">
+      <div class="infoPanel d-flex align-items-center justify-content-center">
+        <div>
+          <h5 class="d-inline">Life Points: </h5>
+          <span id="lifePoints"></span>
+        </div>
       </div>
+      <div class="infoPanel d-flex align-items-center justify-content-center">
+        <div>
+          <h5 class="d-inline">Attack Points: </h5>
+          <span id="attackPoints"></span>
+        </div>
+      </div>
+      <div class="infoPanel d-flex align-items-center justify-content-center">
+        <div>
+          <h5 class="d-inline">Gold Coins: </h5>
+          <span id="goldCoins"></span>
+        </div>
+      </div>
+
     </div>
-    <div class="col-4" style="left: 90px;">
-      <div class="display d-flex flex-wrap" id="exploreDisplay">
-        {{!-- <div class="square guy"></div>
+  </div>
+  <div class="">
+    <div class="display d-flex flex-wrap" id="exploreDisplay">
+      {{!-- <div class="square guy"></div>
         <div class="square grass"></div>
         <div class="square grass"></div>
         <div class="square grass"></div>
@@ -52,33 +94,32 @@
         <div class="square grass"></div>
         <div class="square grass"></div>
         <div class="square grass"></div> --}}
-      </div>
-    </div>
-
-    <div class="col-4" style="left: 40px;">
-      <div class="button-display d-flex flex-wrap">
-        <div class="square-filler"></div>
-        <div class="triangleUp" onclick="moveCharacter(event)"></div>
-        <div class="square-filler"></div>
-        <div class="triangleLeft" onclick="moveCharacter(event)"></div>
-        <div class="square-filler"></div>
-        <div class="triangleRight" onclick="moveCharacter(event)"></div>
-        <div class="square-filler"></div>
-        <div class="triangleDown" onclick="moveCharacter(event)"></div>
-        <div class="square-filler"></div>
-      </div>
-
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-3">
-
+  <div class="">
+    <div class="button-display d-flex flex-wrap">
+      <div class="square-filler"></div>
+      <div class="triangleUp" onclick="moveCharacter(event)"></div>
+      <div class="square-filler"></div>
+      <div class="triangleLeft" onclick="moveCharacter(event)"></div>
+      <div class="square-filler"></div>
+      <div class="triangleRight" onclick="moveCharacter(event)"></div>
+      <div class="square-filler"></div>
+      <div class="triangleDown" onclick="moveCharacter(event)"></div>
+      <div class="square-filler"></div>
     </div>
-    <div class="col-8" >
+
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+  <div class="flex-area-container">
+
+    <div class="d-flex flex-column">
       {{!-- style="padding-right: 4px;" --}}
       <textarea id="theTextArea" cols="10" rows="5" class="form-control" readonly></textarea>
     </div>
   </div>
-
 </div>
