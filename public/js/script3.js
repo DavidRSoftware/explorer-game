@@ -44,6 +44,7 @@ window.onload = function() {
   document.getElementById("goldCoins").innerText = gold;
   document.getElementById("lifePoints").innerText = life;
   document.getElementById("attackPoints").innerText = attack;
+  document.getElementById("defensePoints").innerText = defense;
   generateBoard();
 };
 
@@ -112,9 +113,12 @@ function moveCharacter(e) {
 let gold = 0;
 let life = 100;
 let attack = 10;
+let defense = 0;
+let haveSword = false;
+let haveShield = false;
 const monsterOne = {
   life: 30,
-  attack: 10
+  attack: 20
 };
 
 function action() {
@@ -140,14 +144,12 @@ function continueFight() {
     addText("You defeat the monster");
     document.getElementById("combat-display").classList.add("d-none");
     gold += 20;
-    addText(
-      "You have gained 20 gold coins! You now have " + gold + " gold coins."
-    );
+    addText("You have gained 20 gold coins!");
     document.getElementById("goldCoins").innerText = gold;
     return;
   }
   addText("The monster attacks");
-  life -= 10;
+  life -= monster.attack - defense;
   document.getElementById("lifePoints").innerText = life;
   if (life <= 0) {
     addText("You are defeated");
@@ -156,18 +158,44 @@ function continueFight() {
 
 function stuffStore() {
   document.getElementById("store-display").classList.remove("d-none");
+  addText("You have entered the store");
 }
 
 function purchase(e) {
   console.log(e.target.getAttribute("data-item-name"));
-  
+
   switch (e.target.getAttribute("data-item-name")) {
     case "sword":
+      if (haveSword) {
+        addText("You cannot purchase more than one sword");
+      } else if (gold - 10 < 0) {
+        addText("You do not have enough money to purchase this item");
+      } else {
+        addText("You have purchased a sword for 10 gold coins");
+        gold -= 10;
+        document.getElementById("goldCoins").innerText = gold;
+        attack += 10;
+        document.getElementById("attackPoints").innerText = attack;
+        haveSword = true;
+      }
       break;
     case "shield":
+      if (haveShield) {
+        addText("You cannot purchase more than one shield");
+      } else if (gold - 10 < 0) {
+        addText("You do not have enough money to purchase this item");
+      } else {
+        addText("You have purchased a shield for 10 gold coins");
+        gold -= 10;
+        document.getElementById("goldCoins").innerText = gold;
+        defense += 10;
+        document.getElementById("defensePoints").innerText = defense;
+        haveShield = true;
+      }
       break;
     default:
       document.getElementById("store-display").classList.add("d-none");
+      addText("You have left the store");
   }
 }
 
