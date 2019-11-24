@@ -1,5 +1,3 @@
-// The function getRandomIntInclusive(min, max) is taken from the mozilla developer network website at
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 const AMOUNT_OF_SQUARES = 100;
 const AMOUNT_PER_ROW = 10; //has to divide evenly into AMOUNT_OF_SQUARES
 const AMOUNT_OF_ROWS = AMOUNT_OF_SQUARES / AMOUNT_PER_ROW;
@@ -52,15 +50,15 @@ function generateBoard() {
   const display = document.getElementById("exploreDisplay");
   for (let i = 0; i < AMOUNT_OF_SQUARES; i++) {
     if (i === LOCATION_OF_START) {
-      const guySquare = document.createElement("div");
+      let guySquare = document.createElement("div");
       guySquare.className = "square guy";
-      guySquare.id = "square" + (i + 1);
+      guySquare.id = `square${i + 1}`;
       display.appendChild(guySquare);
       continue;
     }
-    const grassSquare = document.createElement("div");
+    let grassSquare = document.createElement("div");
     grassSquare.className = "square grass";
-    grassSquare.id = "square" + (i + 1);
+    grassSquare.id = `square${i + 1}`;
     display.appendChild(grassSquare);
   }
 }
@@ -116,9 +114,10 @@ let attack = 10;
 let defense = 0;
 let haveSword = false;
 let haveShield = false;
-const monsterOne = {
+let monsterOne = {
   life: 30,
-  attack: 20
+  attack: 20,
+  gold: 20
 };
 
 function action() {
@@ -143,8 +142,8 @@ function continueFight() {
   if (monster.life <= 0) {
     addText("You defeat the monster");
     document.getElementById("combat-display").classList.add("d-none");
-    gold += 20;
-    addText("You have gained 20 gold coins!");
+    gold += monster.gold;
+    addText(`You have gained ${monster.gold} gold coins!`);
     document.getElementById("goldCoins").innerText = gold;
     return;
   }
@@ -199,7 +198,9 @@ function purchase(e) {
   }
 }
 
-//Returns a random integer between min (included) and max (included)
+// The function getRandomIntInclusive(min, max) is taken from the mozilla developer network website at
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// Returns a random integer between min (included) and max (included)
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
