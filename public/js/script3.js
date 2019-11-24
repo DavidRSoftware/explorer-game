@@ -18,7 +18,7 @@ function getRightArray() {
   let array = [AMOUNT_PER_ROW - 1];
   let temp = AMOUNT_PER_ROW - 1;
   for (let i = temp; i < AMOUNT_OF_SQUARES; i++) {
-    if (i == temp + AMOUNT_PER_ROW) {
+    if (i === temp + AMOUNT_PER_ROW) {
       array.push(i);
       temp = i;
     }
@@ -31,7 +31,7 @@ function getRightArray() {
 function getLeftArray() {
   let array = [0];
   for (let i = 1; i < AMOUNT_OF_SQUARES; i++) {
-    if (i % AMOUNT_PER_ROW == 0) array.push(i);
+    if (i % AMOUNT_PER_ROW === 0) array.push(i);
   }
   return array;
 }
@@ -122,9 +122,9 @@ let monsterOne = {
 
 function action() {
   let random = getRandomIntInclusive(1, 5);
-  if (random == 1) {
+  if (random === 1) {
     stuffStore();
-  } else if (random == 2) {
+  } else if (random === 2) {
     fight();
   }
 }
