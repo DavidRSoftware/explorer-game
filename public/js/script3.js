@@ -7,7 +7,7 @@ const ARRAY_OF_RIGHT = getRightArray();
 const ARRAY_OF_DOWN = getDownArray();
 
 function getDownArray() {
-  let array = [];
+  const array = [];
   for (let i = 1; i <= AMOUNT_PER_ROW; i++) {
     array.push(AMOUNT_OF_SQUARES - i);
   }
@@ -15,7 +15,7 @@ function getDownArray() {
 }
 
 function getRightArray() {
-  let array = [AMOUNT_PER_ROW - 1];
+  const array = [AMOUNT_PER_ROW - 1];
   let temp = AMOUNT_PER_ROW - 1;
   for (let i = temp; i < AMOUNT_OF_SQUARES; i++) {
     if (i === temp + AMOUNT_PER_ROW) {
@@ -29,7 +29,7 @@ function getRightArray() {
 }
 
 function getLeftArray() {
-  let array = [0];
+  const array = [0];
   for (let i = 1; i < AMOUNT_OF_SQUARES; i++) {
     if (i % AMOUNT_PER_ROW === 0) array.push(i);
   }
@@ -114,7 +114,7 @@ let attack = 10;
 let defense = 0;
 let haveSword = false;
 let haveShield = false;
-let monsterOne = {
+const monsterOne = {
   life: 30,
   attack: 20,
   gold: 20
@@ -212,3 +212,4 @@ function addText(text) {
   display.value = display.value + text + "\n";
   display.scrollTop = display.scrollHeight;
 }
+
