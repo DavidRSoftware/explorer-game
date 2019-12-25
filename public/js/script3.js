@@ -6,7 +6,7 @@ const ARRAY_OF_LEFT = getLeftArray();
 const ARRAY_OF_RIGHT = getRightArray();
 const ARRAY_OF_DOWN = getDownArray();
 
-function getDownArray() {
+const getDownArray = () => {
   const array = [];
   for (let i = 1; i <= AMOUNT_PER_ROW; i++) {
     array.push(AMOUNT_OF_SQUARES - i);
@@ -14,7 +14,7 @@ function getDownArray() {
   return array;
 }
 
-function getRightArray() {
+const getRightArray = () => {
   const array = [AMOUNT_PER_ROW - 1];
   let temp = AMOUNT_PER_ROW - 1;
   for (let i = temp; i < AMOUNT_OF_SQUARES; i++) {
@@ -23,12 +23,10 @@ function getRightArray() {
       temp = i;
     }
   }
-  console.log(array);
-
   return array;
 }
 
-function getLeftArray() {
+const getLeftArray = () => {
   const array = [0];
   for (let i = 1; i < AMOUNT_OF_SQUARES; i++) {
     if (i % AMOUNT_PER_ROW === 0) array.push(i);
@@ -36,7 +34,7 @@ function getLeftArray() {
   return array;
 }
 
-window.onload = function() {
+window.addEventListener('load', () => {
   $("#welcomeModal").modal();
   addText("Welcome to the explorer game");
   document.getElementById("goldCoins").innerText = gold;
@@ -44,9 +42,9 @@ window.onload = function() {
   document.getElementById("attackPoints").innerText = attack;
   document.getElementById("defensePoints").innerText = defense;
   generateBoard();
-};
+});
 
-function generateBoard() {
+const generateBoard = () => {
   const display = document.getElementById("exploreDisplay");
   for (let i = 0; i < AMOUNT_OF_SQUARES; i++) {
     if (i === LOCATION_OF_START) {
@@ -66,7 +64,7 @@ function generateBoard() {
 const items = document.getElementsByClassName("square");
 let current = LOCATION_OF_START;
 let future = LOCATION_OF_START;
-function moveCharacter(e) {
+const moveCharacter = (e) => {
   switch (e.target.className) {
     case "triangleUp":
       if (current < AMOUNT_PER_ROW) {
@@ -120,23 +118,23 @@ const monsterOne = {
   gold: 20
 };
 
-function action() {
-  let random = getRandomIntInclusive(1, 5);
-  if (random === 1) {
+const action = () => {
+  let random = Math.floor(Math.random() * 5);//generates a random value between 0 and 4
+  if (random === 0) {
     stuffStore();
-  } else if (random === 2) {
+  } else if (random === 1) {
     fight();
   }
 }
 
 let monster;
-function fight() {
+const fight = () => {
   document.getElementById("combat-display").classList.remove("d-none");
   addText("You are in a fight");
   monster = JSON.parse(JSON.stringify(monsterOne));
 }
 
-function continueFight() {
+const continueFight = () => {
   addText("You attack");
   monster.life -= attack;
   if (monster.life <= 0) {
@@ -155,14 +153,13 @@ function continueFight() {
   }
 }
 
-function stuffStore() {
+const stuffStore = () => {
   document.getElementById("store-display").classList.remove("d-none");
   addText("You have entered the store");
 }
 
-function purchase(e) {
+const purchase = (e) => {
   console.log(e.target.getAttribute("data-item-name"));
-
   switch (e.target.getAttribute("data-item-name")) {
     case "sword":
       if (haveSword) {
@@ -198,18 +195,8 @@ function purchase(e) {
   }
 }
 
-// The function getRandomIntInclusive(min, max) is taken from the mozilla developer network website at
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-// Returns a random integer between min (included) and max (included)
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function addText(text) {
+const addText = (text) => {
   const display = document.getElementById("theTextArea");
   display.value = display.value + text + "\n";
   display.scrollTop = display.scrollHeight;
 }
-
